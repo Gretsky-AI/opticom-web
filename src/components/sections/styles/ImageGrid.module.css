@@ -1,0 +1,44 @@
+.container {
+  width: 100%;
+  background: black;
+  overflow: hidden;
+  padding: 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  gap: 0;
+}
+
+.imageWrapper {
+  position: relative;
+  padding-bottom: 100%; /* Creates a square aspect ratio */
+  overflow: hidden;
+}
+
+.image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Only apply full-width to last item on mobile */
+  .imageWrapper:last-child:nth-child(2n + 1) {
+    grid-column: 1 / -1;
+  }
+} 

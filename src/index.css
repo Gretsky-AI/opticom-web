@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "";
+  src: url("");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #000;
+}
+
+@layer base {
+  * {
+    font-optical-sizing: auto;
+    user-select: text;
+    font-family: "Roboto Mono", serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    cursor: none !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Interactive elements */
+a, button, [role="button"], input[type="submit"], input[type="button"] {
+  cursor: none !important;
+}
+
+/* Hover state for interactive elements */
+a:hover ~ .custom-cursor,
+button:hover ~ .custom-cursor,
+[role="button"]:hover ~ .custom-cursor {
+  width: 24px !important;
+  height: 24px !important;
+  background-color: white !important;
+  mix-blend-mode: difference !important;
+}
+
+/* Text input elements */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  cursor: none !important;
+}
+
+/* Text input hover state */
+input[type="text"]:hover ~ .custom-cursor,
+input[type="email"]:hover ~ .custom-cursor,
+input[type="password"]:hover ~ .custom-cursor,
+textarea:hover ~ .custom-cursor {
+  width: 2px !important;
+  height: 24px !important;
+  border-radius: 1px !important;
+  background-color: white !important;
+  mix-blend-mode: difference !important;
+}
+
+body,
+a,
+button,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  cursor: none !important;
+}
+
+@media (max-width: 768px) {
+  body,
+  a,
+  button,
+  input[type="submit"],
+  input[type="reset"],
+  input[type="button"] {
+    cursor: auto !important;
+  }
+}

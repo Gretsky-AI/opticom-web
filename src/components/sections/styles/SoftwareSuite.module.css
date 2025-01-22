@@ -1,0 +1,227 @@
+.container {
+  background-color: white;
+  padding: 4rem 2rem;
+  color: black;
+  width: 100%;
+  overflow: hidden;
+}
+
+.initial .layer {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.layersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 3rem;
+}
+
+@keyframes slideFromLeft {
+  0% {
+    opacity: 0;
+    visibility: visible;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideFromRight {
+  0% {
+    opacity: 0;
+    visibility: visible;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+  }
+}
+
+.layer {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.layer:nth-child(1) {
+  margin-left: 0;
+}
+
+.layer:nth-child(2) {
+  margin-left: 5rem;
+}
+
+.layer:nth-child(3) {
+  margin-left: 10rem;
+}
+
+.animate .layer {
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease-out;
+  visibility: visible;
+}
+
+.animate .layer:nth-child(1) {
+  animation-name: slideFromLeft;
+  animation-delay: 0.2s;
+}
+
+.animate .layer:nth-child(2) {
+  animation-name: slideFromRight;
+  animation-delay: 0.7s;
+}
+
+.animate .layer:nth-child(3) {
+  animation-name: slideFromLeft;
+  animation-delay: 1.2s;
+}
+
+.layer:hover {
+  transform: translateY(-5px);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2rem;
+}
+
+.mainInfo {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+}
+
+.icon {
+  font-size: 2.5rem;
+  flex-shrink: 0;
+}
+
+.layerTitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  min-width: 200px;
+}
+
+.deliveryDate {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.label {
+  font-weight: 500;
+  color: #666;
+}
+
+.date {
+  font-weight: 600;
+  color: black;
+}
+
+.githubButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: #24292e;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.githubButton:hover:not(.disabled) {
+  background-color: #1a1e21;
+}
+
+.githubButton.disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.githubIcon {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 1024px) {
+  .layersContainer {
+    padding: 0 1rem;
+  }
+
+  .layer:nth-child(1) {
+    margin-left: 0;
+  }
+
+  .layer:nth-child(2) {
+    margin-left: 3rem;
+  }
+
+  .layer:nth-child(3) {
+    margin-left: 6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 3rem 1rem;
+  }
+
+  .layersContainer {
+    padding: 0;
+  }
+
+  .layer,
+  .layer:nth-child(1),
+  .layer:nth-child(2),
+  .layer:nth-child(3) {
+    margin-left: 0;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .rightSide {
+    align-items: flex-start;
+    min-width: auto;
+    width: 100%;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+  }
+
+  .layer {
+    padding: 1.5rem;
+  }
+} 
